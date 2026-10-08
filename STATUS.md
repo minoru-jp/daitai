@@ -12,6 +12,12 @@ daitai is a domain-free **reading convention** for how an LLM should interpret s
 
 It does not assume in advance what a description is about. The domain is inferred from key names, hierarchy, natural-language scalars, and surrounding context.
 
+## Filename identification
+
+`*.daitai.yml` and `*.daitai.yaml` are the filename forms for YAML documents to which the daitai reading convention applies. Ordinary `*.yml` and `*.yaml` files should not be assumed to use daitai based on their filenames alone.
+
+`.daitai` does not introduce another format. It is a filename marker indicating that the YAML document is to be read using the daitai reading convention.
+
 ## Documentation center
 
 The reader is an LLM, and no dedicated parser or validator is assumed. Ordinary YAML structure and natural language are read together, with meaning inferred from names and context rather than encoded through a fixed type system.

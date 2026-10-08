@@ -19,6 +19,15 @@ class HOW_TO_READ:
     この文書は、構造化された YAML を daitai の reading convention に沿って読む LLM のためのガイドである。対象の YAML を読む前に、この文書を読むこと。
     """
 
+    class SECTION_000:
+        r"""
+        **ファイル名が `*.daitai.yml` または `*.daitai.yaml` の YAML 文書には、daitai の reading convention を適用する。**
+
+        通常の `*.yml` または `*.yaml` というファイル名だけを根拠に、daitai の reading convention を適用してはならない。`.daitai` は別のファイル形式を表すものではなく、その YAML 文書をこの reading convention で読むことを示すためのファイル名上の印である。
+        """
+
+        title @= "適用対象"
+
     class SECTION_001:
         r"""
         daitai は、構造化された YAML の記述を LLM がどう読むかを共有するための、ドメインフリーな **reading convention** である。

@@ -2,6 +2,12 @@
 
 This document is a guide for an LLM reading structured YAML with the daitai reading convention. Read this document before reading the target YAML.
 
+## Applicability
+
+**Apply the daitai reading convention to YAML documents whose filenames match `*.daitai.yml` or `*.daitai.yaml`.**
+
+Do not apply the daitai reading convention merely because a file is named `*.yml` or `*.yaml`. `.daitai` does not denote a separate file format; it is a filename marker indicating that the YAML document is to be read using this reading convention.
+
 ## Reading principles
 
 daitai is a domain-free **reading convention** for sharing how an LLM should interpret structured YAML descriptions.

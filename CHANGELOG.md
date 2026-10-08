@@ -13,3 +13,8 @@ Added:
 - Defined `da.` as the prefix indicating that daitai provides a reading for an entry.
 - Added initial provided readings for intent, important constraints, order, conditions, causality, references, reuse, group properties, and semantic boundaries.
 - Added canonical document management with shikumi-devdoc, the document generation script, and CI running ruff, basedpyright, and pytest.
+
+Changed:
+
+- Defined `*.daitai.yml` and `*.daitai.yaml` as the filename forms for YAML documents to which the daitai reading convention applies.
+- Clarified that ordinary `*.yml` and `*.yaml` files should not be assumed to use the daitai reading convention based on their filenames alone.

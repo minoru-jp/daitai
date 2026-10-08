@@ -33,6 +33,15 @@ class PROJECT_STATUS:
 
     class STATUS_003:
         r"""
+        `*.daitai.yml` と `*.daitai.yaml` を、daitai の reading convention を適用する YAML 文書のファイル名として扱う。通常の `*.yml` と `*.yaml` には、ファイル名だけを根拠として daitai の読み方を仮定しない。
+
+        `.daitai` は別形式を導入するものではなく、その YAML に daitai の reading convention を適用することを示すファイル名上の印である。
+        """
+
+        title @= "ファイル名による識別"
+
+    class STATUS_004:
+        r"""
         読み手は LLM であり、専用パーサやバリデータを前提にしない。通常の YAML の構造と自然言語を合わせて読み、対象の種類を固定した型体系ではなく、名前と文脈から意味を判断する。
 
         文書構成では [HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) を中核とする。daitai が提供する読み方と `da.*` の語彙も、この文書に集約する。
@@ -40,7 +49,7 @@ class PROJECT_STATUS:
 
         title @= "文書の中心"
 
-    class STATUS_004:
+    class STATUS_005:
         r"""
         `da.` は、その記述について daitai から読み方が提供されていることを示すプレフィクスとして扱う。
 
@@ -51,7 +60,7 @@ class PROJECT_STATUS:
 
         title @= "`da.` が提供する読み方"
 
-    class STATUS_005:
+    class STATUS_006:
         r"""
         作例には、写真整理アプリなど現在の主な利用場面に近い題材を使う。作例のドメインは reading convention の適用範囲を限定しない。
         """

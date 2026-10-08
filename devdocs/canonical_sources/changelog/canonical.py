@@ -27,3 +27,4 @@ class CHANGELOG:
 
         changed @= "`*.daitai.yml` と `*.daitai.yaml` を、daitai の reading convention を適用する YAML 文書のファイル名として定めた。"
         changed @= "通常の `*.yml` と `*.yaml` には、ファイル名だけを根拠として daitai の reading convention を仮定しないことを明確にした。"
+        changed @= "daitai の説明を、YAML を通じて意図と構造を LLM に伝える reading convention という目的に焦点を当てた表現へ更新した。"

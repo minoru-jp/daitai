@@ -27,7 +27,7 @@ Canonical source は `devdocs/canonical_sources/guides/how_to_read.py` です。
 
 ## 読み方の原則
 
-daitai は、構造化された YAML の記述を LLM がどう読むかを共有するための、ドメインフリーな **reading convention** である。
+daitai は、**YAML を通じて意図と構造を LLM に伝えるための reading convention** である。記述は通常の YAML として扱い、厳密な schema を必要としない。
 
 読むときは、次の原則を使う。
 

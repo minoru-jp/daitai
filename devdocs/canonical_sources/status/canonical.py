@@ -24,12 +24,10 @@ class PROJECT_STATUS:
 
     class STATUS_002:
         r"""
-        daitai は、構造化された YAML を LLM が読むための、ドメインフリーな **reading convention** である。
-
-        何について書かれているかを事前に限定せず、キー名、階層、scalar の自然文、周囲の文脈から判断する。
+        daitai は、**YAML を通じて意図と構造を LLM に伝えるための reading convention** である。通常の YAML を使い、厳密な schema を必要としない。
         """
 
-        title @= "対象範囲"
+        title @= "目的"
 
     class STATUS_003:
         r"""
@@ -62,7 +60,7 @@ class PROJECT_STATUS:
 
     class STATUS_006:
         r"""
-        作例には、写真整理アプリなど現在の主な利用場面に近い題材を使う。作例のドメインは reading convention の適用範囲を限定しない。
+        作例には、写真整理アプリなど現在の主な利用場面に近い題材を使う。
         """
 
         title @= "作例"

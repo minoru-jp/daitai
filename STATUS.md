@@ -6,11 +6,9 @@ This document describes the current design direction and open considerations for
 
 daitai is at an early stage. Its reading convention, the readings provided through `da.*`, and examples will be revised through actual use.
 
-## Scope
+## Purpose
 
-daitai is a domain-free **reading convention** for how an LLM should interpret structured YAML.
-
-It does not assume in advance what a description is about. The domain is inferred from key names, hierarchy, natural-language scalars, and surrounding context.
+daitai is a **reading convention for conveying intent and structure to LLMs through YAML**. It uses ordinary YAML and does not require a formal schema.
 
 ## Filename identification
 
@@ -34,4 +32,4 @@ A new provided reading is useful when ordinary YAML and natural language leave a
 
 ## Examples
 
-The documentation uses examples such as a photo-organizing application because they are close to current use cases. The domain of an example does not limit the scope of the reading convention.
+The documentation uses examples such as a photo-organizing application because they are close to current use cases.

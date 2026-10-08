@@ -23,11 +23,9 @@ Canonical source は `devdocs/canonical_sources/status/canonical.py` です。
 
 daitai は初期段階にある。実際の利用を通して、reading convention と `da.*` が提供する読み方、作例を見直していく。
 
-## 対象範囲
+## 目的
 
-daitai は、構造化された YAML を LLM が読むための、ドメインフリーな **reading convention** である。
-
-何について書かれているかを事前に限定せず、キー名、階層、scalar の自然文、周囲の文脈から判断する。
+daitai は、**YAML を通じて意図と構造を LLM に伝えるための reading convention** である。通常の YAML を使い、厳密な schema を必要としない。
 
 ## ファイル名による識別
 
@@ -51,4 +49,4 @@ daitai は、構造化された YAML を LLM が読むための、ドメイン�
 
 ## 作例
 
-作例には、写真整理アプリなど現在の主な利用場面に近い題材を使う。作例のドメインは reading convention の適用範囲を限定しない。
+作例には、写真整理アプリなど現在の主な利用場面に近い題材を使う。

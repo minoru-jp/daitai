@@ -10,7 +10,7 @@ Do not apply the daitai reading convention merely because a file is named `*.yml
 
 ## Reading principles
 
-daitai is a domain-free **reading convention** for sharing how an LLM should interpret structured YAML descriptions.
+daitai is a **reading convention for conveying intent and structure to LLMs through YAML**. It uses ordinary YAML and does not require a formal schema.
 
 Use these principles when reading:
 

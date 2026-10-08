@@ -1,0 +1,5 @@
+shikumi-devdoc==0.3.5
+ruff==0.16.10
+basedpyright==1.40.1
+pytest>=8.0
+PyYAML>=6.0

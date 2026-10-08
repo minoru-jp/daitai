@@ -1,0 +1,15 @@
+# daitai is not a Python package. This file only holds tool settings
+# for the documentation workspace (devdocs/), scripts, and tests.
+
+[tool.ruff]
+target-version = "py311"
+extend-exclude = ["devdocs/canonical_documents"]
+
+[tool.basedpyright]
+pythonVersion = "3.11"
+include = ["devdocs", "scripts", "tests"]
+exclude = ["devdocs/canonical_documents", "**/__pycache__"]
+typeCheckingMode = "standard"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

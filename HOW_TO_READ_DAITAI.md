@@ -33,12 +33,13 @@ There is no need to assume that `about_gui_design` is a concrete GUI component. 
 
 The `da.` prefix indicates that **daitai provides a reading for that entry**. Where no `da.` key is present, read the content as ordinary YAML and natural language.
 
-A provided reading may cover the entire name after the prefix or only part of it.
+A provided reading can be used as-is or refined by continuing the key with additional names. Read those additional names as ordinary language and combine them with the provided reading.
 
-- `da.intent` has a provided reading for the whole name.
-- In `da.group.exclusive`, `group` provides the reading "about a group", while `exclusive` is read as an ordinary name.
+- `da.intent` and `da.intent.primary` both use the provided reading for `intent`; read `primary` as an ordinary name.
+- `da.when` and `da.when.viewport_narrow` likewise use the reading for `when`, with the remainder interpreted from its name and context.
+- In `da.group.exclusive`, the reading for `group` is followed by the ordinary name `exclusive`.
 
-If an undocumented name appears under `da.`, apply the reading provided for any known portion, then interpret the remainder from its key name, value, structure, and surrounding context.
+If an undocumented name appears under `da.`, apply any provided reading that matches a known portion, then interpret the remainder from its key name, value, structure, and surrounding context.
 
 | Word | Provided reading |
 | --- | --- |
@@ -46,7 +47,7 @@ If an undocumented name appears under `da.`, apply the reading provided for any 
 | `da.important` | Intent or constraints that must survive concretization |
 | `da.items` | A sequence of items whose order matters |
 | `da.separator` | A semantic boundary between the content before and after it |
-| `da.group.*` | Apply the property or relationship named by `*` to a group of items |
+| `da.group` | A statement about a group of items |
 | `da.when` | Conditional content |
 | `da.relation` | Relationship between conditional content and the normal case |
 | `da.target` | The main subject acted on by an operation, process, or event |
@@ -55,36 +56,75 @@ If an undocumented name appears under `da.`, apply the reading provided for any 
 | `da.ref` | A semantic reference to another named subject |
 | `da.use` | Use or apply a structure or description defined elsewhere at this location |
 
-Do not treat value shapes as strict types. Combine the provided reading with the ordinary reading of YAML, language, and structure.
+Do not assume a fixed input pattern or value type for `da.*`. Read the key name, value, and surrounding YAML structure together.
 
-## Groups and separators
+## Do not assume a fixed shape
 
-`da.group.*` provides a reading for properties or relationships of a group of items that are difficult to express through YAML hierarchy alone. The `*` part is not fixed vocabulary; read it as an ordinary name.
+The same provided reading can be expressed through different YAML shapes. Read the whole structure as ordinary YAML instead of assuming one form in advance.
+
+For example, all three of the following can describe a group with the property `exclusive`.
+
+```yaml
+display_mode:
+  da.group.exclusive:
+    foo:
+    bar:
+```
 
 ```yaml
 display_mode:
   da.group.exclusive: true
-  list:
-  grid:
-  compact:
+  foo:
+  bar:
 ```
-
-Here, infer the group `list`, `grid`, and `compact` from the surrounding structure, then read `exclusive` as a property of that group.
-
-The target group can also be made explicit in the value.
 
 ```yaml
-toolbar:
-  da.group.exclusive:
-    items:
-      - select
-      - draw
-      - erase
+display_mode:
+  da.group.exclusive: [foo, bar]
 ```
 
-With `true`, infer the target group from the surroundings. If the value contains items or other structure, use it as information identifying the target. Nested keys such as `items` are also read as ordinary names.
+`da.when` can likewise express a condition in a continued key or in the value structure.
 
-`da.separator` describes a semantic boundary rather than a group itself.
+```yaml
+panel:
+  da.when.viewport_narrow:
+    hidden: true
+```
+
+```yaml
+panel:
+  da.when:
+    viewport_narrow:
+      hidden: true
+```
+
+`da.ref` can also be used on its own or with additional names.
+
+```yaml
+profile_card:
+  da.ref: user_profile
+```
+
+```yaml
+profile_card:
+  da.ref.primary: user_profile
+```
+
+Punctuation may be used to visually separate part of a key. Do not assume that such punctuation has daitai-specific syntax; interpret it as part of the name together with the surrounding context.
+
+```yaml
+profile_card:
+  da.ref.[a.b]: display_name
+```
+
+```yaml
+profile_card:
+  da.ref.(a.b): display_name
+```
+
+Neither `[]` nor `()` is specially prescribed. Here as elsewhere, read the key name and the whole structure as description.
+
+`da.separator` indicates a semantic boundary between what comes before and after it.
 
 ```yaml
 menu:
@@ -94,5 +134,3 @@ menu:
     - da.separator: true
     - quit
 ```
-
-Determine how that boundary should be represented from the subject and context.

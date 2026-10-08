@@ -56,10 +56,11 @@ class HOW_TO_READ:
         r"""
         `da.` プレフィクスは、**その記述について daitai から読み方が提供されていること**を示す。`da.` がない場所は、通常の YAML と自然言語として読む。
 
-        提供された読み方は、プレフィクスの後ろ全体に及ぶ場合も、途中までに及ぶ場合もある。
+        提供された読み方は、その名前をそのまま使うことも、後ろに名前を続けて具体化することもできる。続いた名前は通常の言葉として読み、提供された読み方と合わせて解釈する。
 
-        - `da.intent` は語全体として読み方が提供されている。
-        - `da.group.exclusive` では、`group` までが「集合について述べる」という読み方として提供され、`exclusive` は通常の名前として読む。
+        - `da.intent` と `da.intent.primary` は、どちらも `intent` として提供された読み方を使う。`primary` は通常の名前として読む。
+        - `da.when` と `da.when.viewport_narrow` も同様に、`when` の読み方を使い、その先は名前と文脈から読む。
+        - `da.group.exclusive` では、`group` の読み方に `exclusive` という通常の名前が続いている。
 
         文書にない名前が `da.` の下に現れた場合も、提供されている部分の読み方を適用し、残りはキー名、値、構造、周囲の文脈から解釈する。
 
@@ -69,7 +70,7 @@ class HOW_TO_READ:
         | `da.important` | 具体化しても失ってはいけない意図や制約 |
         | `da.items` | 順序に意味がある項目の列 |
         | `da.separator` | 前後の内容に意味上の区切りがあること |
-        | `da.group.*` | 複数の項目からなる集合について、`*` に書かれた性質や関係を適用する |
+        | `da.group` | 複数の項目からなる集合について述べる |
         | `da.when` | 条件付きの内容 |
         | `da.relation` | 条件付き内容と通常時の内容の関係 |
         | `da.target` | 操作・処理・イベントが主に作用する対象 |
@@ -78,39 +79,78 @@ class HOW_TO_READ:
         | `da.ref` | 別の名前付き対象への意味的な言及 |
         | `da.use` | 別の場所に書かれた構造や記述を、この位置でも使う・適用する |
 
-        値の形を厳密な型として扱わない。提供された読み方と、通常の YAML・言葉・構造の読み方を合わせて解釈する。
+        `da.*` に決まった入力パターンや値の型を仮定しない。キー名、値、周囲の YAML 構造を合わせて読む。
         """
 
         title @= "`da.*` が提供する読み方"
 
     class SECTION_003:
         r"""
-        `da.group.*` は、複数の項目からなる集合について、YAML の階層だけでは表しにくい性質や関係を伝えるための読み方である。`*` は固定語彙ではなく、通常の名前として読む。
+        同じ provided reading でも、対象や関係の表し方は一つに決まっていない。形を先に決めず、通常の YAML として全体を読む。
+
+        たとえば次の三つは、いずれも `exclusive` という性質を持つ集合を表す記述として読める。
+
+        ```yaml
+        display_mode:
+          da.group.exclusive:
+            foo:
+            bar:
+        ```
 
         ```yaml
         display_mode:
           da.group.exclusive: true
-          list:
-          grid:
-          compact:
+          foo:
+          bar:
         ```
-
-        この場合は、周囲の構造から `list`、`grid`、`compact` を集合として捉え、`exclusive` をその集合の性質として読む。
-
-        対象を値の側で明示することもできる。
 
         ```yaml
-        toolbar:
-          da.group.exclusive:
-            items:
-              - select
-              - draw
-              - erase
+        display_mode:
+          da.group.exclusive: [foo, bar]
         ```
 
-        `true` なら周囲から対象集合を判断し、値に項目や構造があれば、それを対象を特定する情報として読む。`items` のような内側のキーも通常の名前として解釈する。
+        `da.when` も、条件を後続の名前で表すことも、値の構造で表すこともできる。
 
-        `da.separator` は集合そのものではなく、前後に意味上の境界があることを示す。
+        ```yaml
+        panel:
+          da.when.viewport_narrow:
+            hidden: true
+        ```
+
+        ```yaml
+        panel:
+          da.when:
+            viewport_narrow:
+              hidden: true
+        ```
+
+        `da.ref` も同じように、単独でも、後続の名前を伴っても読める。
+
+        ```yaml
+        profile_card:
+          da.ref: user_profile
+        ```
+
+        ```yaml
+        profile_card:
+          da.ref.primary: user_profile
+        ```
+
+        キーの一部を見た目上区切るために記号が使われることもある。記号には daitai 固有の構文上の意味を仮定せず、名前の一部として周囲と合わせて解釈する。
+
+        ```yaml
+        profile_card:
+          da.ref.[a.b]: display_name
+        ```
+
+        ```yaml
+        profile_card:
+          da.ref.(a.b): display_name
+        ```
+
+        `[]` と `()` のどちらかが特別に定められているわけではない。ここでも、キー名と構造全体を記述として読む。
+
+        `da.separator` は前後に意味上の境界があることを示す。
 
         ```yaml
         menu:
@@ -120,8 +160,6 @@ class HOW_TO_READ:
             - da.separator: true
             - quit
         ```
-
-        境界を具体的にどう表現するかは、その対象と文脈から判断する。
         """
 
-        title @= "集合と区切り"
+        title @= "形を固定しない"

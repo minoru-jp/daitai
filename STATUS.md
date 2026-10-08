@@ -26,7 +26,7 @@ The reader is an LLM, and no dedicated parser or validator is assumed. Ordinary 
 
 The `da.` prefix indicates that daitai provides a reading for that entry.
 
-A reading may cover the whole name, as in `da.intent`, or only part of it, as in `da.group.*`. In the latter case, the remaining name is interpreted as ordinary language from context.
+A provided reading may be used as-is, as in `da.intent`, or refined with additional names, as in `da.intent.primary` or `da.when.viewport_narrow`. Read the added portion as ordinary language from context. Do not fix the value shape or the depth of the continued name.
 
 A new provided reading is useful when ordinary YAML and natural language leave an important relationship easy to misread and there is value in sharing that reading in advance.
 

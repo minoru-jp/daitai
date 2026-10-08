@@ -19,3 +19,4 @@ Changed:
 - Defined `*.daitai.yml` and `*.daitai.yaml` as the filename forms for YAML documents to which the daitai reading convention applies.
 - Clarified that ordinary `*.yml` and `*.yaml` files should not be assumed to use the daitai reading convention based on their filenames alone.
 - Updated the description of daitai to focus on its purpose as a reading convention for conveying intent and structure to LLMs through YAML.
+- Clarified that every provided `da.*` reading can be refined with additional names and interpreted across multiple value and structure patterns from context.

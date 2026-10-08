@@ -26,7 +26,7 @@ daitai の最初の文書一式を作成した。
 Added:
 
 - 構造化された YAML を LLM が読むための、ドメインフリーな reading convention として daitai を定義した。
-- LLM 向けの中核文書 `HOW_TO_READ_DAITAI.md` と、提供される読み方を参照する `DAITAI_CHEATSHEET.md` を追加した。
+- LLM 向けの中核文書 `HOW_TO_READ_DAITAI.md` を追加し、reading convention と提供される `da.*` の読み方を集約した。
 - `da.` を、daitai から読み方が提供されていることを示すプレフィクスとして定義した。
 - 意図、重要事項、順序、条件、因果、参照、再利用、集合の性質、意味上の区切りについて初期の読み方を提供した。
 - shikumi-devdoc による正本文書管理、文書生成スクリプト、ruff・basedpyright・pytest を実行する CI を追加した。

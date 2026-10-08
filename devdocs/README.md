@@ -10,7 +10,7 @@ devdocs/
 │   ├── readme/
 │   ├── status/
 │   ├── changelog/
-│   ├── guides/           HOW_TO_READ_DAITAI, DAITAI_CHEATSHEET
+│   ├── guides/           HOW_TO_READ_DAITAI
 │   └── workspace/        this README
 ├── config/
 │   └── notice.toml       notice and publication policy embedded at the top of generated documents
@@ -19,7 +19,7 @@ devdocs/
 
 - The Python in `canonical_sources/` is the canonical source of the documents. Edit it when changing a document.
 - `canonical_documents/` is generated output. It is kept in Git for review but is not edited directly.
-- The repository-root `README.md`, `HOW_TO_READ_DAITAI.md`, `DAITAI_CHEATSHEET.md`, `STATUS.md`, and `CHANGELOG.md`, together with this `devdocs/README.md`, are published English translations of `canonical_documents/`.
+- The repository-root `README.md`, `HOW_TO_READ_DAITAI.md`, `STATUS.md`, and `CHANGELOG.md`, together with this `devdocs/README.md`, are published English translations of `canonical_documents/`.
 
 ## Generation
 

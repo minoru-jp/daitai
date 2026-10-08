@@ -16,7 +16,7 @@ It does not assume in advance what a description is about. The domain is inferre
 
 The reader is an LLM, and no dedicated parser or validator is assumed. Ordinary YAML structure and natural language are read together, with meaning inferred from names and context rather than encoded through a fixed type system.
 
-[HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) is the core document. For writers, [DAITAI_CHEATSHEET.md](DAITAI_CHEATSHEET.md) provides a quick reference to the readings made available by daitai.
+[HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) is the core document. The reading convention and the readings provided through `da.*` are kept together there.
 
 ## Readings provided through `da.`
 

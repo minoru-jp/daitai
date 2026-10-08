@@ -1,6 +1,6 @@
 <!--
 この文書は `shikumi-devdoc` によって生成された canonical document です。
-Canonical source は `devdocs/canonical_sources/guides/__init__.py` です。
+Canonical source は `devdocs/canonical_sources/guides/how_to_read.py` です。
 直接編集しないでください。
 
 公開文書作成方針

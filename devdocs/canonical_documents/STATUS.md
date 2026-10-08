@@ -33,7 +33,7 @@ daitai は、構造化された YAML を LLM が読むための、ドメイン�
 
 読み手は LLM であり、専用パーサやバリデータを前提にしない。通常の YAML の構造と自然言語を合わせて読み、対象の種類を固定した型体系ではなく、名前と文脈から意味を判断する。
 
-文書構成では [HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) を中核とし、書き手向けには [DAITAI_CHEATSHEET.md](DAITAI_CHEATSHEET.md) で、daitai が提供している読み方を素早く参照できるようにする。
+文書構成では [HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) を中核とする。daitai が提供する読み方と `da.*` の語彙も、この文書に集約する。
 
 ## `da.` が提供する読み方
 

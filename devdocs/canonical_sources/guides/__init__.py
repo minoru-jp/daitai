@@ -1,5 +1,5 @@
-"""Canonical daitai guides: how to read and the cheat sheet."""
+"""Canonical daitai reading guide."""
 
-from . import cheatsheet, how_to_read
+from . import how_to_read
 
-__all__ = ["cheatsheet", "how_to_read"]
+__all__ = ["how_to_read"]

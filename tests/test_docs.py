@@ -32,7 +32,6 @@ PUBLISHED: dict[str, str] = {
     "STATUS.md": "STATUS.md",
     "CHANGELOG.md": "CHANGELOG.md",
     "HOW_TO_READ_DAITAI.md": "HOW_TO_READ_DAITAI.md",
-    "DAITAI_CHEATSHEET.md": "DAITAI_CHEATSHEET.md",
     "devdocs/README.md": "devdocs/README.md",
 }
 

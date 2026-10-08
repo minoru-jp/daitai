@@ -27,7 +27,7 @@ devdocs/
 │   ├── readme/
 │   ├── status/
 │   ├── changelog/
-│   ├── guides/           HOW_TO_READ_DAITAI・DAITAI_CHEATSHEET
+│   ├── guides/           HOW_TO_READ_DAITAI
 │   └── workspace/        この README
 ├── config/
 │   └── notice.toml       生成物の先頭に埋め込む注意書きと公開方針
@@ -36,7 +36,7 @@ devdocs/
 
 - `canonical_sources/` の Python が文書の正本である。文書を変更するときはここを編集する。
 - `canonical_documents/` は生成物である。レビューのために Git に含めるが、直接編集しない。
-- リポジトリ直下の `README.md`、`HOW_TO_READ_DAITAI.md`、`DAITAI_CHEATSHEET.md`、`STATUS.md`、`CHANGELOG.md`、およびこの `devdocs/README.md` は、`canonical_documents/` を英語へ翻訳した公開版である。
+- リポジトリ直下の `README.md`、`HOW_TO_READ_DAITAI.md`、`STATUS.md`、`CHANGELOG.md`、およびこの `devdocs/README.md` は、`canonical_documents/` を英語へ翻訳した公開版である。
 
 ## 生成
 

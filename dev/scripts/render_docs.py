@@ -1,8 +1,8 @@
-"""Regenerate the canonical documents under ``devdocs/canonical_documents/``.
+"""Regenerate the canonical documents under ``dev/devdocs/canonical_documents/``.
 
-Run from anywhere::
+From the repository root::
 
-    python scripts/render_docs.py
+    python dev/scripts/render_docs.py
 
 ``--output`` renders into another directory instead, which the tests use to
 check that the committed canonical documents are in sync with their sources.
@@ -17,17 +17,18 @@ import subprocess
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-NOTICE = REPO_ROOT / "devdocs" / "config" / "notice.toml"
-DEFAULT_OUTPUT = REPO_ROOT / "devdocs" / "canonical_documents"
+DEV_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = DEV_ROOT.parent
+NOTICE = DEV_ROOT / "devdocs" / "config" / "notice.toml"
+DEFAULT_OUTPUT = DEV_ROOT / "devdocs" / "canonical_documents"
 
 # (canonical source module or package, output directory relative to the root)
 TARGETS: tuple[tuple[str, str], ...] = (
-    ("devdocs.canonical_sources.readme.canonical", "."),
-    ("devdocs.canonical_sources.status.canonical", "."),
-    ("devdocs.canonical_sources.changelog.canonical", "."),
-    ("devdocs.canonical_sources.guides", "."),
-    ("devdocs.canonical_sources.workspace.canonical", "devdocs"),
+    ("dev.devdocs.canonical_sources.readme.canonical", "."),
+    ("dev.devdocs.canonical_sources.status.canonical", "."),
+    ("dev.devdocs.canonical_sources.changelog.canonical", "."),
+    ("dev.devdocs.canonical_sources.guides", "."),
+    ("dev.devdocs.canonical_sources.workspace.canonical", "devdocs"),
 )
 
 
@@ -80,7 +81,7 @@ def main() -> int:
         "--output",
         type=Path,
         default=DEFAULT_OUTPUT,
-        help="output root (default: devdocs/canonical_documents)",
+        help="output root (default: dev/devdocs/canonical_documents)",
     )
     args = parser.parse_args()
     output: Path = args.output

@@ -1,11 +1,11 @@
 <!--
 この文書は `shikumi-devdoc` によって生成された canonical document です。
-Canonical source は `devdocs/canonical_sources/guides/how_to_read.py` です。
+Canonical source は `dev/devdocs/canonical_sources/guides/how_to_read.py` です。
 直接編集しないでください。
 
 公開文書作成方針
 
-- `devdocs/canonical_documents/` にある日本語 canonical document を公開工程の入力とし、英語へ翻訳する。
+- `dev/devdocs/canonical_documents/` にある日本語 canonical document を公開工程の入力とし、英語へ翻訳する。
 - 翻訳では意味、構造、情報量を維持し、内容を勝手に追加・削除・要約しない。
 - `da.` で始まるキーは、daitai から読み方が提供されている記述として扱い、キー自体は翻訳・変更しない。
 - `branch`、`extension`、`restriction`、`replacement` など、`da.*` の値として例示される英語の慣用表現は変更しない。

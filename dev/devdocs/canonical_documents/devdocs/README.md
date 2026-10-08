@@ -1,11 +1,11 @@
 <!--
 この文書は `shikumi-devdoc` によって生成された canonical document です。
-Canonical source は `devdocs/canonical_sources/workspace/canonical.py` です。
+Canonical source は `dev/devdocs/canonical_sources/workspace/canonical.py` です。
 直接編集しないでください。
 
 公開文書作成方針
 
-- `devdocs/canonical_documents/` にある日本語 canonical document を公開工程の入力とし、英語へ翻訳する。
+- `dev/devdocs/canonical_documents/` にある日本語 canonical document を公開工程の入力とし、英語へ翻訳する。
 - 翻訳では意味、構造、情報量を維持し、内容を勝手に追加・削除・要約しない。
 - `da.` で始まるキーは、daitai から読み方が提供されている記述として扱い、キー自体は翻訳・変更しない。
 - `branch`、`extension`、`restriction`、`replacement` など、`da.*` の値として例示される英語の慣用表現は変更しない。
@@ -15,38 +15,45 @@ Canonical source は `devdocs/canonical_sources/workspace/canonical.py` です�
 - published document は canonical document から派生する公開成果物として扱い、内容の変更が必要な場合は canonical source へ戻して canonical document を再生成する。
 -->
 
-# devdocs/
+# dev/devdocs/
 
-`devdocs/` は、このリポジトリの文書を [shikumi-devdoc](https://github.com/minoru-jp/shikumi-devdoc) で管理するためのワークスペースである。
+`dev/devdocs/` は、このリポジトリの文書を [shikumi-devdoc](https://github.com/minoru-jp/shikumi-devdoc) で管理するためのワークスペースである。
 
 ## 構成
 
 ```text
-devdocs/
-├── canonical_sources/    正本（Python）
-│   ├── readme/
-│   ├── status/
-│   ├── changelog/
-│   ├── guides/           HOW_TO_READ_DAITAI
-│   └── workspace/        この README
-├── config/
-│   └── notice.toml       生成物の先頭に埋め込む注意書きと公開方針
-└── canonical_documents/  正本から生成した日本語の文書
+dev/
+├── CHANGELOG.md
+├── STATUS.md
+├── pyproject.toml
+├── requirements-dev.txt
+├── scripts/
+├── tests/
+└── devdocs/
+    ├── canonical_sources/    正本（Python）
+    │   ├── readme/
+    │   ├── status/
+    │   ├── changelog/
+    │   ├── guides/           HOW_TO_READ_DAITAI
+    │   └── workspace/        この README
+    ├── config/
+    │   └── notice.toml       生成物の先頭に埋め込む注意書きと公開方針
+    └── canonical_documents/  正本から生成した日本語の文書
 ```
 
 - `canonical_sources/` の Python が文書の正本である。文書を変更するときはここを編集する。
 - `canonical_documents/` は生成物である。レビューのために Git に含めるが、直接編集しない。
-- リポジトリ直下の `README.md`、`HOW_TO_READ_DAITAI.md`、`STATUS.md`、`CHANGELOG.md`、およびこの `devdocs/README.md` は、`canonical_documents/` を英語へ翻訳した公開版である。
+- リポジトリ直下の `README.md` と `HOW_TO_READ_DAITAI.md`、`dev/` にある `STATUS.md` と `CHANGELOG.md`、およびこの `dev/devdocs/README.md` は、`canonical_documents/` を英語へ翻訳した公開版である。
 
 ## 生成
 
-リポジトリのどこからでも、次のコマンドで `canonical_documents/` を再生成できる。
+リポジトリ直下から、次のコマンドで `canonical_documents/` を再生成できる。
 
 ```bash
-python scripts/render_docs.py
+python dev/scripts/render_docs.py
 ```
 
-`shikumi-devdoc` の CLI はカレントディレクトリを import path に加えないため、このスクリプトがリポジトリのルートを `PYTHONPATH` に追加して CLI を呼び出す。
+`shikumi-devdoc` の CLI はカレントディレクトリを import path に加えないため、このスクリプトがリポジトリ直下を `PYTHONPATH` に追加して CLI を呼び出す。
 
 ## 公開版
 
@@ -56,9 +63,10 @@ canonical source を変更したら、canonical document を再生成し、対�
 
 ## チェック
 
-開発用の依存関係をインストールし、次を実行する。
+`dev/` で開発用の依存関係をインストールし、次を実行する。
 
 ```bash
+cd dev
 python -m pip install -r requirements-dev.txt
 ruff format --check .
 ruff check .

@@ -20,7 +20,7 @@ daitai is a **reading convention for conveying intent and structure to LLMs thro
 
 The reader is an LLM, and no dedicated parser or validator is assumed. Ordinary YAML structure and natural language are read together, with meaning inferred from names and context rather than encoded through a fixed type system.
 
-[HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) is the core document. The reading convention and the readings provided through `da.*` are kept together there.
+[HOW_TO_READ_DAITAI.md](../HOW_TO_READ_DAITAI.md) is the core document. The reading convention and the readings provided through `da.*` are kept together there.
 
 ## Readings provided through `da.`
 
@@ -29,6 +29,10 @@ The `da.` prefix indicates that daitai provides a reading for that entry.
 A provided reading may be used as-is, as in `da.intent`, or refined with additional names, as in `da.intent.primary` or `da.when.viewport_narrow`. Read the added portion as ordinary language from context. Do not fix the value shape or the depth of the continued name.
 
 A new provided reading is useful when ordinary YAML and natural language leave an important relationship easy to misread and there is value in sharing that reading in advance.
+
+## Repository layout
+
+Keep the repository root as the public surface centered on `README.md`, `HOW_TO_READ_DAITAI.md`, and `LICENSE`. Files for document generation, verification, and project management are grouped under `dev/`. GitHub Actions and Git metadata remain where their respective systems require them.
 
 ## Examples
 

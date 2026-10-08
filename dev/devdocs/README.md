@@ -1,32 +1,39 @@
-# devdocs/
+# dev/devdocs/
 
-`devdocs/` is the workspace for managing the documents in this repository with [shikumi-devdoc](https://github.com/minoru-jp/shikumi-devdoc).
+`dev/devdocs/` is the workspace for managing the documents in this repository with [shikumi-devdoc](https://github.com/minoru-jp/shikumi-devdoc).
 
 ## Layout
 
 ```text
-devdocs/
-├── canonical_sources/    canonical sources (Python)
-│   ├── readme/
-│   ├── status/
-│   ├── changelog/
-│   ├── guides/           HOW_TO_READ_DAITAI
-│   └── workspace/        this README
-├── config/
-│   └── notice.toml       notice and publication policy embedded at the top of generated documents
-└── canonical_documents/  Japanese documents generated from the canonical sources
+dev/
+├── CHANGELOG.md
+├── STATUS.md
+├── pyproject.toml
+├── requirements-dev.txt
+├── scripts/
+├── tests/
+└── devdocs/
+    ├── canonical_sources/    canonical sources (Python)
+    │   ├── readme/
+    │   ├── status/
+    │   ├── changelog/
+    │   ├── guides/           HOW_TO_READ_DAITAI
+    │   └── workspace/        this README
+    ├── config/
+    │   └── notice.toml       notice and publication policy embedded at the top of generated documents
+    └── canonical_documents/  Japanese documents generated from the canonical sources
 ```
 
 - The Python in `canonical_sources/` is the canonical source of the documents. Edit it when changing a document.
 - `canonical_documents/` is generated output. It is kept in Git for review but is not edited directly.
-- The repository-root `README.md`, `HOW_TO_READ_DAITAI.md`, `STATUS.md`, and `CHANGELOG.md`, together with this `devdocs/README.md`, are published English translations of `canonical_documents/`.
+- The repository-root `README.md` and `HOW_TO_READ_DAITAI.md`, `STATUS.md` and `CHANGELOG.md` under `dev/`, and this `dev/devdocs/README.md` are published English translations of `canonical_documents/`.
 
 ## Generation
 
-From anywhere in the repository, regenerate `canonical_documents/` with:
+From the repository root, regenerate `canonical_documents/` with:
 
 ```bash
-python scripts/render_docs.py
+python dev/scripts/render_docs.py
 ```
 
 Because the `shikumi-devdoc` CLI does not add the current directory to the import path, this script adds the repository root to `PYTHONPATH` and invokes the CLI.
@@ -39,9 +46,10 @@ When a canonical source changes, regenerate the canonical document and update th
 
 ## Checks
 
-Install the development dependencies and run:
+Install the development dependencies and run the checks from `dev/`:
 
 ```bash
+cd dev
 python -m pip install -r requirements-dev.txt
 ruff format --check .
 ruff check .

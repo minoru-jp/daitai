@@ -42,7 +42,7 @@ class PROJECT_STATUS:
         r"""
         読み手は LLM であり、専用パーサやバリデータを前提にしない。通常の YAML の構造と自然言語を合わせて読み、対象の種類を固定した型体系ではなく、名前と文脈から意味を判断する。
 
-        文書構成では [HOW_TO_READ_DAITAI.md](HOW_TO_READ_DAITAI.md) を中核とする。daitai が提供する読み方と `da.*` の語彙も、この文書に集約する。
+        文書構成では [HOW_TO_READ_DAITAI.md](../HOW_TO_READ_DAITAI.md) を中核とする。daitai が提供する読み方と `da.*` の語彙も、この文書に集約する。
         """
 
         title @= "文書の中心"
@@ -59,6 +59,13 @@ class PROJECT_STATUS:
         title @= "`da.` が提供する読み方"
 
     class STATUS_006:
+        r"""
+        リポジトリ直下は `README.md`、`HOW_TO_READ_DAITAI.md`、`LICENSE` を中心とする公開面として保ち、文書生成・検証・プロジェクト管理に関するファイルは `dev/` にまとめる。GitHub Actions と Git のメタデータは、それぞれの仕組みが要求する場所に置く。
+        """
+
+        title @= "リポジトリ構成"
+
+    class STATUS_007:
         r"""
         作例には、写真整理アプリなど現在の主な利用場面に近い題材を使う。
         """

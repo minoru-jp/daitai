@@ -19,20 +19,21 @@ from typing import Any
 import pytest
 import yaml
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-CANONICAL_ROOT = REPO_ROOT / "devdocs" / "canonical_documents"
+DEV_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = DEV_ROOT.parent
+CANONICAL_ROOT = DEV_ROOT / "devdocs" / "canonical_documents"
 
-sys.path.insert(0, str(REPO_ROOT / "scripts"))
+sys.path.insert(0, str(DEV_ROOT / "scripts"))
 import render_docs  # pyright: ignore[reportMissingImports]
 
 # canonical document (relative to CANONICAL_ROOT) -> published document
 # (relative to REPO_ROOT)
 PUBLISHED: dict[str, str] = {
     "README.md": "README.md",
-    "STATUS.md": "STATUS.md",
-    "CHANGELOG.md": "CHANGELOG.md",
+    "STATUS.md": "dev/STATUS.md",
+    "CHANGELOG.md": "dev/CHANGELOG.md",
     "HOW_TO_READ_DAITAI.md": "HOW_TO_READ_DAITAI.md",
-    "devdocs/README.md": "devdocs/README.md",
+    "devdocs/README.md": "dev/devdocs/README.md",
 }
 
 YAML_FENCE = re.compile(
@@ -88,7 +89,7 @@ def test_canonical_documents_are_in_sync(tmp_path: Path) -> None:
         expected = (tmp_path / name).read_text(encoding="utf-8")
         actual = (CANONICAL_ROOT / name).read_text(encoding="utf-8")
         assert actual == expected, (
-            f"{name} is out of date; run `python scripts/render_docs.py`"
+            f"{name} is out of date; run `python dev/scripts/render_docs.py`"
         )
 
 

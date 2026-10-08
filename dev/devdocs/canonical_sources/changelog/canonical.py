@@ -29,3 +29,4 @@ class CHANGELOG:
         changed @= "通常の `*.yml` と `*.yaml` には、ファイル名だけを根拠として daitai の reading convention を仮定しないことを明確にした。"
         changed @= "daitai の説明を、YAML を通じて意図と構造を LLM に伝える reading convention という目的に焦点を当てた表現へ更新した。"
         changed @= "`da.*` のすべての provided reading で、後続の名前による具体化と複数の値・構造パターンを文脈から読めることを明確にした。"
+        changed @= "リポジトリ直下を README、HOW_TO_READ_DAITAI、LICENSE を中心とする公開面に整理し、文書管理・生成・検証用のファイルを `dev/` に集約した。"

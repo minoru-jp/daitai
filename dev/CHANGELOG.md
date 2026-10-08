@@ -20,3 +20,4 @@ Changed:
 - Clarified that ordinary `*.yml` and `*.yaml` files should not be assumed to use the daitai reading convention based on their filenames alone.
 - Updated the description of daitai to focus on its purpose as a reading convention for conveying intent and structure to LLMs through YAML.
 - Clarified that every provided `da.*` reading can be refined with additional names and interpreted across multiple value and structure patterns from context.
+- Reorganized the repository root around README, HOW_TO_READ_DAITAI, and LICENSE, and grouped document management, generation, and verification files under `dev/`.

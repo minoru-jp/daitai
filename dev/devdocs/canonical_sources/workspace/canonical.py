@@ -5,47 +5,54 @@ from shikumi_devdoc.norms.document import title
 
 
 @canonical_source(
-    "devdocs/",
+    "dev/devdocs/",
     filename="README.md",
     merge_policy="local",
     heading="title",
 )
 class WORKSPACE:
     r"""
-    `devdocs/` は、このリポジトリの文書を [shikumi-devdoc](https://github.com/minoru-jp/shikumi-devdoc) で管理するためのワークスペースである。
+    `dev/devdocs/` は、このリポジトリの文書を [shikumi-devdoc](https://github.com/minoru-jp/shikumi-devdoc) で管理するためのワークスペースである。
     """
 
     class SECTION_001:
         r"""
         ```text
-        devdocs/
-        ├── canonical_sources/    正本（Python）
-        │   ├── readme/
-        │   ├── status/
-        │   ├── changelog/
-        │   ├── guides/           HOW_TO_READ_DAITAI
-        │   └── workspace/        この README
-        ├── config/
-        │   └── notice.toml       生成物の先頭に埋め込む注意書きと公開方針
-        └── canonical_documents/  正本から生成した日本語の文書
+        dev/
+        ├── CHANGELOG.md
+        ├── STATUS.md
+        ├── pyproject.toml
+        ├── requirements-dev.txt
+        ├── scripts/
+        ├── tests/
+        └── devdocs/
+            ├── canonical_sources/    正本（Python）
+            │   ├── readme/
+            │   ├── status/
+            │   ├── changelog/
+            │   ├── guides/           HOW_TO_READ_DAITAI
+            │   └── workspace/        この README
+            ├── config/
+            │   └── notice.toml       生成物の先頭に埋め込む注意書きと公開方針
+            └── canonical_documents/  正本から生成した日本語の文書
         ```
 
         - `canonical_sources/` の Python が文書の正本である。文書を変更するときはここを編集する。
         - `canonical_documents/` は生成物である。レビューのために Git に含めるが、直接編集しない。
-        - リポジトリ直下の `README.md`、`HOW_TO_READ_DAITAI.md`、`STATUS.md`、`CHANGELOG.md`、およびこの `devdocs/README.md` は、`canonical_documents/` を英語へ翻訳した公開版である。
+        - リポジトリ直下の `README.md` と `HOW_TO_READ_DAITAI.md`、`dev/` にある `STATUS.md` と `CHANGELOG.md`、およびこの `dev/devdocs/README.md` は、`canonical_documents/` を英語へ翻訳した公開版である。
         """
 
         title @= "構成"
 
     class SECTION_002:
         r"""
-        リポジトリのどこからでも、次のコマンドで `canonical_documents/` を再生成できる。
+        リポジトリ直下から、次のコマンドで `canonical_documents/` を再生成できる。
 
         ```bash
-        python scripts/render_docs.py
+        python dev/scripts/render_docs.py
         ```
 
-        `shikumi-devdoc` の CLI はカレントディレクトリを import path に加えないため、このスクリプトがリポジトリのルートを `PYTHONPATH` に追加して CLI を呼び出す。
+        `shikumi-devdoc` の CLI はカレントディレクトリを import path に加えないため、このスクリプトがリポジトリ直下を `PYTHONPATH` に追加して CLI を呼び出す。
         """
 
         title @= "生成"
@@ -61,9 +68,10 @@ class WORKSPACE:
 
     class SECTION_004:
         r"""
-        開発用の依存関係をインストールし、次を実行する。
+        `dev/` で開発用の依存関係をインストールし、次を実行する。
 
         ```bash
+        cd dev
         python -m pip install -r requirements-dev.txt
         ruff format --check .
         ruff check .

@@ -1,11 +1,11 @@
 <!--
 この文書は `shikumi-devdoc` によって生成された canonical document です。
-Canonical source は `devdocs/canonical_sources/changelog/canonical.py` です。
+Canonical source は `dev/devdocs/canonical_sources/changelog/canonical.py` です。
 直接編集しないでください。
 
 公開文書作成方針
 
-- `devdocs/canonical_documents/` にある日本語 canonical document を公開工程の入力とし、英語へ翻訳する。
+- `dev/devdocs/canonical_documents/` にある日本語 canonical document を公開工程の入力とし、英語へ翻訳する。
 - 翻訳では意味、構造、情報量を維持し、内容を勝手に追加・削除・要約しない。
 - `da.` で始まるキーは、daitai から読み方が提供されている記述として扱い、キー自体は翻訳・変更しない。
 - `branch`、`extension`、`restriction`、`replacement` など、`da.*` の値として例示される英語の慣用表現は変更しない。
@@ -37,3 +37,4 @@ Changed:
 - 通常の `*.yml` と `*.yaml` には、ファイル名だけを根拠として daitai の reading convention を仮定しないことを明確にした。
 - daitai の説明を、YAML を通じて意図と構造を LLM に伝える reading convention という目的に焦点を当てた表現へ更新した。
 - `da.*` のすべての provided reading で、後続の名前による具体化と複数の値・構造パターンを文脈から読めることを明確にした。
+- リポジトリ直下を README、HOW_TO_READ_DAITAI、LICENSE を中心とする公開面に整理し、文書管理・生成・検証用のファイルを `dev/` に集約した。
